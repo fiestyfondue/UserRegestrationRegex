@@ -54,7 +54,7 @@ namespace REGEX
         }
         public void Password(string password)
         {
-            string validatepassword = "^[A-Z][a-z]{3,20}$";
+            string validatepassword = "^[a-zA-Z0-9]{8,}$";
             try
             {
                 if(Regex.IsMatch(password,validatepassword))

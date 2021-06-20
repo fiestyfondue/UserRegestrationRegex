@@ -26,8 +26,7 @@ namespace REGEX
             string PhoneNo = Console.ReadLine();
             regex.PhoneNumber(PhoneNo);
             Console.WriteLine();
-            Console.WriteLine("First letter be capital");
-            Console.WriteLine("Password length should be 8");
+            Console.WriteLine("There needs to be a Number in the password");
             Console.WriteLine("Enter Password :");
             string Password = Console.ReadLine();
             regex.Password(Password);
