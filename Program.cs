@@ -26,7 +26,7 @@ namespace REGEX
             string PhoneNo = Console.ReadLine();
             regex.PhoneNumber(PhoneNo);
             Console.WriteLine();
-            Console.WriteLine("There needs to be a Number in the password");
+            Console.WriteLine("There needs to be a special character in the password");
             Console.WriteLine("Enter Password :");
             string Password = Console.ReadLine();
             regex.Password(Password);
