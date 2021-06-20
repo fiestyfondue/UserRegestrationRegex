@@ -5,15 +5,24 @@ using System.Text.RegularExpressions;
 
 namespace REGEX
 {
-    public class RegexValidation
+    class RegexValidation
     {
-        public static string NAME_REGEX = "^[A-Z]{1}[A-Za-z]{6,}$";
-        
-
-        public bool ValidateFirstName()
+        public void ValidateName(string name)
         {
-            return Regex.IsMatch("Harshsinha", NAME_REGEX);
+            string validateFirstName = "^[A-Z][a-z]{3,}$";
+            try
+            {
+                if (Regex.IsMatch(name, validateFirstName))
+                    Console.WriteLine(" Name saved succesfull");
+                else
+                    Console.WriteLine("Invalid name!!");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
-        
     }
+
 }
+
