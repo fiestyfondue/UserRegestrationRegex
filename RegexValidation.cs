@@ -52,6 +52,21 @@ namespace REGEX
                 Console.WriteLine(e.Message);
             }
         }
+        public void Password(string password)
+        {
+            string validatepassword = "^[a-zA-Z]{8}";
+            try
+            {
+                if(Regex.IsMatch(password,validatepassword))
+                    Console.WriteLine("Password Saved");
+                else
+                    Console.WriteLine("Invalid Password");
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
 

@@ -22,6 +22,9 @@ namespace REGEX
             Console.WriteLine("Enter Phone Number :");
             string PhoneNo = Console.ReadLine();
             regex.PhoneNumber(PhoneNo);
+            Console.WriteLine("Enter Password :");
+            string Password = Console.ReadLine();
+            regex.Password(Password);
 
         }
     }
