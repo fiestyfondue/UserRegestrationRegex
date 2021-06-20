@@ -19,6 +19,9 @@ namespace REGEX
             Console.WriteLine("Enter Email :");
             string email = Console.ReadLine();
             regex.CheckEmail(email);
+            Console.WriteLine("Enter Phone Number :");
+            string PhoneNo = Console.ReadLine();
+            regex.PhoneNumber(PhoneNo);
 
         }
     }

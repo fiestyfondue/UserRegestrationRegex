@@ -37,6 +37,21 @@ namespace REGEX
                 Console.WriteLine(e.Message);
             }
         }
+        public void PhoneNumber(string phoneNo)
+        {
+            string validatePhoneNo = "^[0-9]{10}$";
+            try
+            {
+                if(Regex.IsMatch(phoneNo,validatePhoneNo))
+                    Console.WriteLine("Phone number saved successfully");
+                else
+                    Console.WriteLine("Invalid PhoneNumber");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
 }
 
