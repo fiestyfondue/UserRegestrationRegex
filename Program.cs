@@ -16,6 +16,9 @@ namespace REGEX
             Console.WriteLine("Enter Last name :");
             string lastname = Console.ReadLine();
             regex.ValidateName(lastname);
+            Console.WriteLine("Enter Email :");
+            string email = Console.ReadLine();
+            regex.CheckEmail(email);
 
         }
     }

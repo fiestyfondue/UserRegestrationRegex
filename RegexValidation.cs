@@ -22,7 +22,23 @@ namespace REGEX
                 Console.WriteLine(e.Message);
             }
         }
+        public void CheckEmail(string email)
+        {
+            string validateEmail = "^[0-9a-zA-Z]+[.+-_]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([a-zA-Z]{2,3}){0,1}$";
+            try
+            {
+                if(Regex.IsMatch(email,validateEmail))
+                    Console.WriteLine("Email saved successfully");
+                else
+                    Console.WriteLine("Invalid Email");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
     }
-
 }
+
+
 
