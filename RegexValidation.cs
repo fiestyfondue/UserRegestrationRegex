@@ -7,17 +7,24 @@ namespace REGEX
 {
     public class RegexValidation
     {
+        string validateFirstName = "^[A-Z][a-z]{3,20}$";
+        string validateEmail = "^[a-zA-Z0-9]+[._+-]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
+        string validateMobile = "^[0-9]{1,4}\\s[0-9]{10,12}$";
+        string validatepassword = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$";
         public bool Name(string name)
         {
-            string validateFirstName = "^[A-Z][a-z]{3,20}$";
             try
             {
+                if (string.IsNullOrEmpty(name))
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.EMPTY_NAME);
                 if (Regex.IsMatch(name, validateFirstName))
                     return true;
-
                 else
-                    return false;
-                 
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_NAME);
+            }
+            catch (RegexValidationException ex)
+            {
+                Console.WriteLine(ex.Message);
             }
             catch (Exception e)
             {
@@ -27,71 +34,70 @@ namespace REGEX
         }
         public bool Email(string email)
         {
-            string validateEmail= "^[a-zA-Z0-9]+[._+-]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
             try
             {
+                if (string.IsNullOrEmpty(email))
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.EMPTY_EMAIL);
                 if (Regex.IsMatch(email, validateEmail))
                     return true;
-                //{
-                //    Console.WriteLine("Email Validated Successfully");
-                //}
                 else
-                    return false;
-                //{
-                //    Console.WriteLine("Invalid Email");
-                //}
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_EMAIL);
             }
-            catch(Exception EMAIL)
+            catch (RegexValidationException ex)
             {
-                Console.WriteLine(EMAIL.Message);
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
             return false;
         }
         public bool PhoneNo(string phoneno)
         {
-            string validatePhoneNo= "^[0-9]{1,4}\\s[0-9]{10,12}$";
+
             try
             {
-                if (Regex.IsMatch(phoneno, validatePhoneNo))
+                if (string.IsNullOrEmpty(phoneno))
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.EMPTY_PHONE_NO);
+                if (Regex.IsMatch(phoneno, validateMobile))
                     return true;
-                //{
-                //    Console.WriteLine("Phone number validated successfully");
-                //}
                 else
-                    return false;
-                //{
-                //    Console.WriteLine("Invalid Phone number ");
-                //}
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_PHONE_NO);
             }
-            catch(Exception PHONENO)
+            catch (RegexValidationException ex)
             {
-                Console.WriteLine(PHONENO.Message);
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
             return false;
         }
+
         public bool Password(string password)
         {
-            string validatePassword= "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$";
             try
             {
-                if (Regex.IsMatch(password, validatePassword))
+                if (string.IsNullOrEmpty(password))
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.EMPTY_PASSWORD);
+                if (Regex.IsMatch(password, validatepassword))
                     return true;
-                //{
-                //    Console.WriteLine("Password Validated successfully");
-                //}
                 else
-                    return false;
-                //{
-                //    Console.WriteLine("Invalid Password");
-                //}
+                    throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_PASSWORD);
             }
-            catch(Exception PASSWORD)
+            catch (RegexValidationException ex)
             {
-                Console.WriteLine(PASSWORD.Message);
+                Console.WriteLine(ex.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
             return false;
         }
-              
+
     }
 }
 
