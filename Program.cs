@@ -11,9 +11,9 @@ namespace REGEX
             
             
             
-            RegexValidation regex = new RegexValidation();
-            string email = Console.ReadLine();
-            regex.Email(email);
+            //RegexValidation regex = new RegexValidation();
+            //string email = Console.ReadLine();
+            //regex.Email(email);
             
 
         }
