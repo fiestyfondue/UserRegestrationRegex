@@ -9,7 +9,7 @@ namespace REGEX
     {
         string validateFirstName = "^[A-Z][a-z]{3,20}$";
         string validateEmail = "^[a-zA-Z0-9]+[._+-]{0,1}[0-9a-zA-Z]+[@][a-zA-Z]+[.][a-zA-Z]{2,3}([.][a-zA-Z]{2,3}){0,1}$";
-        string validateMobile = "^[0-9]{1,4}\\s[0-9]{10,12}$";
+        string validatePhoneNo = "^[0-9]{1,4}\\s[0-9]{10,12}$";
         string validatepassword = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[&%$#@^*!~]).{8,}$";
         public bool Name(string name)
         {
@@ -60,7 +60,7 @@ namespace REGEX
             {
                 if (string.IsNullOrEmpty(phoneno))
                     throw new RegexValidationException(RegexValidationException.InvalidUserDetails.EMPTY_PHONE_NO);
-                if (Regex.IsMatch(phoneno, validateMobile))
+                if (Regex.IsMatch(phoneno, validatePhoneNo))
                     return true;
                 else
                     throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_PHONE_NO);
@@ -97,6 +97,11 @@ namespace REGEX
             }
             return false;
         }
+        //? is null conditional operator which is ==
+        public bool lambdaExpNameValidation(string name) => Regex.IsMatch(name, validateFirstName) ? true : throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_NAME);
+        public bool lambdaExpEmailValidation(string email) => Regex.IsMatch(email, validateEmail) ? true : throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_EMAIL);
+        public bool lambdaExpPhoneNo(string phoneNo) => Regex.IsMatch(phoneNo, validatePhoneNo) ? true : throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_PHONE_NO);
+        public bool lambdaExpPassword(string password) => Regex.IsMatch(password, validatepassword) ? true : throw new RegexValidationException(RegexValidationException.InvalidUserDetails.INVALID_PASSWORD);
 
     }
 }
